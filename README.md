@@ -38,6 +38,7 @@ Unity Version: 2021.3.4f1 (or later)
 ## Installation
 
 (1)本リポジトリをgitからクローン
+
 (2)Unityでバージョン2021.3.4f1かそれ以降を用意し、プロジェクトを開く。
 
 ## Usage
