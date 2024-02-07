@@ -32,6 +32,7 @@ public class StageController : MonoBehaviour
 
     [Space(20)]
     public List<ParticleSystem> sparks_particleSystem;
+    public List<ParticleSystem> fireworks_particleSystem;
 
     [Space(20)]
     [SerializeField] GateMaster gateMaster;
@@ -111,6 +112,15 @@ public class StageController : MonoBehaviour
             var sparkMain = spark.main;
             sparkMain.simulationSpeed = spark_parameters.speed;
             spark.Play();
+        }
+    }
+
+    public void PlayFireworks()
+    {
+        foreach (var firework in fireworks_particleSystem)
+        {
+            var fireworkMain = firework.main;
+            firework.Play();
         }
     }
 

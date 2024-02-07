@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Goal;
         CameraController.i.MoveGoalPosition();
         StageController.i.PlaySparks();
+        StageController.i.PlayFireworks();
         StageController.i.FadeoutGoalFlag();
     }
 
