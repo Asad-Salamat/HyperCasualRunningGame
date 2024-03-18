@@ -1,35 +1,47 @@
 # HyperCasualRunningGame
 
-ハイパーカジュアルのランニングゲームです。
-プレイヤーは画面をスワイプ操作して、ゴールを目指します。道中にある計算ゲートで味方を増やし、敵を倒して進んでいきます。
-デバッグ画面から、ステージやキャラクター、ゲートに関連するパラメータを変更することができます。
+This is a hyper casual running game.
+
+The player swipes the screen to reach the goal. The player will use calculation gates along the way to increase allies and defeat enemies in order to progress.
+
+Parameters related to stages, characters and gates can be changed from the debug screen.
 
 ![IMG_7231](https://user-images.githubusercontent.com/108989983/198868016-0cd58e73-54de-4d42-afb0-e7f68602d411.PNG)
 
 ![iOS の画像](https://user-images.githubusercontent.com/108989983/198868013-523e576f-f7eb-451f-ac09-cba2c3d60678.png)
 
-詳しい紹介動画は[こちら](https://youtu.be/mFPTihc5D5Y)をご覧下さい。
+For a detailed introductory video, please see [here](https://youtu.be/mFPTihc5D5Y).
 
 ## Contents
 
+<!--
 ゲームの概要，機能，調整できるパラメータ，出力できるパラメータ，想定される利用方法などを画像を用いて記載  
 ゲームの操作方法やルールもここに記載
+-->
 
-### ルール
+### Rule
 
+<!--
 ルールを記述する、何をしちゃだめなのか、何を目指すのかを明確にしながら記載
+-->
 
-### 操作方法
+### How to operate
 
+<!--
 対応している操作方法を記載、操作方法1つに付きそれを図解する画像を貼る
+-->
 
 ## Features
 
+<!--
 このゲームのプレイスタイルやパラメータ編集・出力の内容について記載
+-->
 
-### 研究利用例
+### Research Applications
 
+<!--
 このゲームが活躍するような研究の例を2~3つ記載
+-->
 
 ## Requirement
 
@@ -37,55 +49,24 @@ Unity Version: 2021.3.4f1 (or later)
 
 ## Installation
 
-(1)本リポジトリをgitからクローン
+1. Clone this repository from git.
 
-(2)Unityでバージョン2021.3.4f1かそれ以降を用意し、プロジェクトを開く。
+2. Prepare version 2021.3.4f1 or later in Unity and open the project.
 
 ## Usage
 
+<!--
 使い方を記載
+-->
 
 ## Licence
 
-1. HyperCasualRunningGame は無料でご利用できます。
+This content is licensed under the [MIT License](https://github.com/open-video-game-library/CasualRunGame/blob/master/LICENSE.md).
 
-2. 営利目的・公序良俗に反する目的でない限り、研究目的での利用を含め、あらゆる用途で利用できます。
+## Use in Research
 
-3. ダウンロードしたデータを改変し、ご利用いただいても構いません。
-
-4. 利用報告をする必要はありませんが、改変したデータを二次配布する場合を含め、ゲーム名 を利用した場合は、その旨を明記して下さい。
-
-5. HyperCasualRunningGame を研究で利用する場合は、ご自身の論文内で以下の論文を引用して下さい。
-
-- [研究利用しやすく標準性を目指したビデオゲームの設計と開発](http://id.nii.ac.jp/1001/00212465/)
-```
-@inproceedings{weko_212571_1,
-   author	 = "拓也,岡 and 拓也,川島 and 大智,林 and 恵太,渡邊",
-   title	 = "研究利用しやすく標準性を目指したビデオゲームの設計と開発",
-   booktitle	 = "エンタテインメントコンピューティングシンポジウム論文集",
-   year 	 = "2021",
-   volume	 = "2021",
-   number	 = "",
-   pages	 = "181--186",
-   month	 = "aug"
-}
-```
-
-- （このゲームについて言及した自身の論文があり、それを引用してほしい場合は、その論文のURLを記載）
-```
-BiBTeX
-```
-
-## Note
-
-- HyperCasualRunningGame からダウンロードしたものを、自身が開発したものと偽って公開する行為はご遠慮下さい。
-
-- HyperCasualRunningGame を利用したことによるトラブル/損害が発生した場合、一切の責任を負いません。
-
-- HyperCasualRunningGame のコンテンツや利用規約は、予告なしに変更される場合があります。
-
-- HyperCasualRunningGame ではゲーム内のパラメータを変更できますが、研究の公平性や再現性を保つために、設定したパラメータの値を明示するようにしてください。
+[Recommendations for research use of this content](https://github.com/open-video-game-library/CasualRunGame/blob/master/RESEARCH_USE.md)
 
 ## Contact
 
-意見や要望、質問などがありましたら、[こちら](https://openvideogame.cc/contact)からお問い合わせ下さい。
+If you have any comments, requests or questions, please contact us [here](https://openvideogame.cc/contact).
