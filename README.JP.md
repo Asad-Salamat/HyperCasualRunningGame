@@ -1,5 +1,7 @@
 # HyperCasualRunningGame
 
+[English version README](https://github.com/open-video-game-library/CasualRunGame/blob/master/README.md)
+
 ハイパーカジュアルのランニングゲームです。
 
 プレイヤーは画面をスワイプ操作して、ゴールを目指します。道中にある計算ゲートで味方を増やし、敵を倒して進んでいきます。
