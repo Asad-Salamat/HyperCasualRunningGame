@@ -1,5 +1,7 @@
 # HyperCasualRunningGame
 
+[日本語版README](https://github.com/open-video-game-library/CasualRunGame/blob/master/README.JP.md)
+
 This is a hyper casual running game.
 
 The player swipes the screen to reach the goal. The player will use calculation gates along the way to increase allies and defeat enemies in order to progress.
