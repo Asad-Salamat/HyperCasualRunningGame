@@ -1,4 +1,4 @@
-# HyperCasualRunningGame
+# Hyper Casual Running Game
 
 [English version README](https://github.com/open-video-game-library/CasualRunGame/blob/master/README.md)
 
