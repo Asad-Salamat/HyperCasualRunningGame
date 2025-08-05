@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class CanvasManager : MonoBehaviour
     public StartCanvasController startCanvas;
     public ClearCanvasController clearCanvas;
     public FailCanvasController failCanvas;
+    public GameObject progressSlider;
+    public Image filler;
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Awake()
@@ -28,6 +32,7 @@ public class CanvasManager : MonoBehaviour
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void OpenSettingsCanvas()
     {
+        SoundManager.Instance.PlaySound(SoundType.ButtonClick);
         CloseAllPage();
         settingsCanvas.gameObject.SetActive(true);
         EffectViewerManager.i.SetViewersActive(true);
@@ -40,10 +45,11 @@ public class CanvasManager : MonoBehaviour
         EffectViewerManager.i.SetViewersActive(false);
     }
 
-    public void OpenClearCanvas()
+    public void OpenClearCanvas(int level)
     {
         CloseAllPage();
         clearCanvas.gameObject.SetActive(true);
+        clearCanvas.SetData(level);
     }
 
     public void OpenFailCanvas()
@@ -58,5 +64,11 @@ public class CanvasManager : MonoBehaviour
         startCanvas.gameObject.SetActive(false);
         clearCanvas.gameObject.SetActive(false);
         failCanvas.gameObject.SetActive(false);
+    }
+
+    public void UpdateFiller(float value)
+    {
+        //float previousValue
+        filler.DOFillAmount(value, .3f).SetEase(Ease.Linear);
     }
 }

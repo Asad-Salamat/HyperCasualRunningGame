@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerPoolManager : MonoBehaviour
 {
+    [SerializeField] private GameObject[] players;
     public static PlayerPoolManager i;
     [HideInInspector] public List<PlayerController> playerPool;
+    private int currentPlayerIndex = 0;
+    private int poolCount = 80;
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Awake()
@@ -15,13 +18,24 @@ public class PlayerPoolManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        currentPlayerIndex = PlayerPrefs.GetInt("playerIndex", 0);
+        PreparePlayerPool();
+        // for (int i = 0; i < transform.childCount; i++)
+        // {
+        //     Transform child = transform.GetChild(i);
+        //     if (child.TryGetComponent(out PlayerController player))
+        //     {
+        //         player.Die(true);
+        //     }
+        // }
+    }
+    private void PreparePlayerPool()
+    {
+        for (int i = 0; i < poolCount; i++)
         {
-            Transform child = transform.GetChild(i);
-            if (child.TryGetComponent(out PlayerController player))
-            {
-                player.Die(true);
-            }
+            GameObject playerObj = Instantiate(players[currentPlayerIndex], transform);
+            playerObj.SetActive(false);
+            playerPool.Add(playerObj.GetComponent<PlayerController>());
         }
     }
 

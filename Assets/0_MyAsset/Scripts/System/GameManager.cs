@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float confettiPlayDelayTime_sec = 0.5f;
     public float openClearCanvasDelayTime_sec = 1.5f;
     public float openFailCanvasDelayTime_sec = 1f;
+    private int currentLevel;
 
     [HideInInspector] public GameState gameState = GameState.Ready;
 
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
         if (gameState != GameState.Play) return;
 
         gameState = GameState.Goal;
+        SoundManager.Instance.StopBGSound();
+        SoundManager.Instance.PlaySound(SoundType.Victory);
         CameraController.i.MoveGoalPosition();
         StageController.i.PlaySparks();
         StageController.i.FadeoutGoalFlag();
@@ -64,8 +67,26 @@ public class GameManager : MonoBehaviour
         }));
         StartCoroutine(DelayMethod(openClearCanvasDelayTime_sec, () =>
         {
-            CanvasManager.i.OpenClearCanvas();
+            currentLevel = PlayerPrefs.GetInt("level", 0) + 1;
+            CanvasManager.i.OpenClearCanvas(currentLevel);
+            if (currentLevel >= 5)
+            {
+                int player = PlayerPrefs.GetInt("playerIndex", 0);
+                player++;
+                if (player >= 5)
+                {
+                    player = 0;
+                }
+                PlayerPrefs.SetInt("playerIndex", player);
+                currentLevel = 0;
+            }
+            PlayerPrefs.SetInt("level", currentLevel);
         }));
+    }
+
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("level", 0);
     }
 
     public void CheckFail()
@@ -75,6 +96,8 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Fail;
         StartCoroutine(DelayMethod(openFailCanvasDelayTime_sec, () =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Lose);
+            SoundManager.Instance.StopBGSound();
             CanvasManager.i.OpenFailCanvas();
         }));
     }

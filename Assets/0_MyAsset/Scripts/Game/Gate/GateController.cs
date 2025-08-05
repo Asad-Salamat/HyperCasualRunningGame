@@ -67,6 +67,7 @@ public class GateController : MonoBehaviour
             var lightRingMain = lightRing.main;
             lightRingMain.simulationSpeed = GateMaster.i.lightRing_parameters.speed;
             lightRing.Play();
+            SoundManager.Instance.PlaySound(SoundType.CorrectDoor);
         }
         else if (calculateMode == CalculateMode.Minus || calculateMode == CalculateMode.Divid)
         {
@@ -77,6 +78,7 @@ public class GateController : MonoBehaviour
             var smokeMain = smoke.main;
             smokeMain.simulationSpeed = GateMaster.i.smoke_parameters.speed;
             smoke.Play();
+            SoundManager.Instance.PlaySound(SoundType.WrongDoor);
         }
     }
 }

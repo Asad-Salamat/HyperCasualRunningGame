@@ -92,6 +92,7 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.Instance.PlaySound(SoundType.Collision);
         enemyState = EnemyState.Die;
         manager.enemies.Remove(this);
         manager.CheckPass();

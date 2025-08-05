@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46778dc5887ea4c35b462d227a0cadf0, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 4
   horizontalPower: 500
   gatherPower: 200
   gatherPower_TowardEnemy: 150
   dieDelayTime_sec: 0.2
-  color: {r: 0, g: 0.7529412, b: 1, a: 1}
+  color: {r: 0.509434, g: 0.39653096, b: 0.2763439, a: 1}
   fountainSplash_parameters:
     useEffect: 1
     size: 1
@@ -26,5 +26,5 @@ MonoBehaviour:
     useEffect: 1
     size: 1
     speed: 1
-  horizontalMoveThreshold: 0.5
+  horizontalMoveThreshold: 0.4
   models: []

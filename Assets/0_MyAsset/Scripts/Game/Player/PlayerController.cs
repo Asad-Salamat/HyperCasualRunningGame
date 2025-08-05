@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public PlayerState playerState = PlayerState.Idle;
     Rigidbody _rigidbody;
     EnemyController couple_enemy;
+    private bool isRunning;
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Awake()
@@ -123,7 +124,20 @@ public class PlayerController : MonoBehaviour
         Move_Forward();
         Move_Horizontal();
         Move_TowardEnemy();
+        AnimateCharacter();
         Gather();
+    }
+
+    private void AnimateCharacter()
+    {
+        if (playerState == PlayerState.Idle || playerState == PlayerState.Fight || playerState==PlayerState.Clear)
+        {
+            animator.SetBool("running", false);
+        }
+        else if (playerState == PlayerState.Run)
+        { 
+            animator.SetBool("running", true);
+        }
     }
 
     void Move_Forward()
@@ -169,6 +183,7 @@ public class PlayerController : MonoBehaviour
     #region Die
     public void Die(bool isPoolInitialize = false)
     {
+        SoundManager.Instance.PlaySound(SoundType.Collision);
         gameObject.SetActive(false);
         PlayerManager.i.players.Remove(this);
         PlayerPoolManager.i.EnqueuePlayer(this);
@@ -192,7 +207,7 @@ public class PlayerController : MonoBehaviour
         var fountainSplashMain = fountainSplash.main;
         fountainSplash.transform.localScale = Vector3.one * fountainSplash_parameters.size;
         fountainSplashMain.simulationSpeed = fountainSplash_parameters.speed;
-        fountainSplashMain.startColor = DataManager.i.playerData.color;
+        //fountainSplashMain.startColor = DataManager.i.playerData.color;
         fountainSplash.transform.position = transform.position;
         fountainSplash.Play();
     }
@@ -208,7 +223,7 @@ public class PlayerController : MonoBehaviour
         var puddleMain = puddle.main;
         puddle.transform.localScale = Vector3.one * puddle_parameters.size;
         puddleMain.simulationSpeed = puddle_parameters.speed;
-        puddleMain.startColor = DataManager.i.playerData.color;
+        //puddleMain.startColor = DataManager.i.playerData.color;
         Vector3 targetPos = transform.position;
         targetPos.y = 0.01f;
         puddle.transform.position = targetPos;
@@ -221,6 +236,7 @@ public class PlayerController : MonoBehaviour
         playerState = PlayerState.Clear;
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.isKinematic = true;
+        animator.SetBool("running", false);
     }
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー

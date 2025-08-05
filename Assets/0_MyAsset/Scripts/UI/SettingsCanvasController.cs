@@ -88,12 +88,26 @@ public class SettingsCanvasController : MonoBehaviour
     [SerializeField] FieldBox system_openFailCanvasDelayTime_sec_fieldBox;
     #endregion
 
+    #region Setting
+    [SerializeField] private GameObject musicOn;
+    [SerializeField] private GameObject musicOff;
+    [SerializeField] private GameObject soundOn;
+    [SerializeField] private GameObject soundOff;
+    private bool isSoundOff, isMusicOff;
+    #endregion
+
     [HideInInspector] public bool wasInitialized = false;
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     void Start()
     {
         Initialize();
         EffectViewerManager.i.Initialize_Effects();
+    }
+
+    void OnEnable()
+    {
+        Time.timeScale = 0;
+        InitSetting();
     }
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -152,8 +166,23 @@ public class SettingsCanvasController : MonoBehaviour
         wasInitialized = true;
     }
 
+    private void InitSetting()
+    {
+        isMusicOff = PlayerPrefs.GetInt("music", 0) != 0;
+        isSoundOff = PlayerPrefs.GetInt("sound", 0) != 0;
+        musicOff.SetActive(isMusicOff);
+        musicOn.SetActive(!isMusicOff);
+        soundOff.SetActive(isSoundOff);
+        soundOn.SetActive(!isSoundOff);
+        print("Music " + isMusicOff + " Sound " + isSoundOff);
+        SoundManager.Instance.UpdateMusicVolume(isMusicOff);
+        SoundManager.Instance.UpdateSoundVolume(isSoundOff);
+    }
+
     public void OnBtnPush_closeSettingsBtn()
     {
+        SoundManager.Instance.PlaySound(SoundType.ButtonClick);
+        Time.timeScale = 1;
         CanvasManager.i.CloseSettingsCanvas();
     }
 
@@ -186,7 +215,7 @@ public class SettingsCanvasController : MonoBehaviour
     {
         if (!wasInitialized) return;
         DataManager.i.playerData.color = (Color)player_color_fieldBox.value;
-        PlayerManager.i.SetPlayersColor();
+        //PlayerManager.i.SetPlayersColor();
     }
 
     #region BloodSplash
@@ -437,4 +466,23 @@ public class SettingsCanvasController : MonoBehaviour
         Initialize();
     }
     #endregion
+    public void MusicToggleBtn()
+    {
+        SoundManager.Instance.PlaySound(SoundType.ButtonClick);
+        isMusicOff = !isMusicOff;
+        musicOff.SetActive(isMusicOff);
+        musicOn.SetActive(!isMusicOff);
+        SoundManager.Instance.UpdateMusicVolume(isMusicOff);
+        PlayerPrefs.SetInt("music",isMusicOff == false ? 0 : 1);
+    }
+
+    public void SoundToggleBtn()
+    {
+        SoundManager.Instance.PlaySound(SoundType.ButtonClick);
+        isSoundOff = !isSoundOff;
+        soundOff.SetActive(isSoundOff);
+        soundOn.SetActive(!isSoundOff);
+        SoundManager.Instance.UpdateSoundVolume(isSoundOff);
+        PlayerPrefs.SetInt("sound",isSoundOff == false ? 0 : 1);
+    }
 }

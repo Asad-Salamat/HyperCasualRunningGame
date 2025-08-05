@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager i;
 
-    [SerializeField] PlayerController player_original;
+    [SerializeField] PlayerController[] player_original;
     public List<PlayerController> players = new List<PlayerController>();
 
     [Space(10)]
@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector] public Vector3 targetStartPosition;
     [HideInInspector] public Vector3 targetPosition;
     [HideInInspector] public EnemyManager currentEnemySection;
+    private int currentPlayerIndex;
 
     Vector3 previousPlayerCenterPos;
 
@@ -37,7 +38,11 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        SetPlayersColor();
+        currentPlayerIndex = PlayerPrefs.GetInt("playerIndex", 0);
+        var player = Instantiate(player_original[currentPlayerIndex],transform);
+        player.transform.position = new Vector3(0, 0, 7);
+        players.Add(player);
+        //SetPlayersColor();
     }
 
     void Update()
@@ -52,13 +57,13 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-    public void SetPlayersColor()
-    {
-        foreach (var player in players)
-        {
-            player.SetColor(DataManager.i.playerData.color);
-        }
-    }
+    // public void SetPlayersColor()
+    // {
+    //     foreach (var player in players)
+    //     {
+    //         player.SetColor(DataManager.i.playerData.color);
+    //     }
+    // }
 
     //ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     public void BeginPlayersRunning()
@@ -123,7 +128,7 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerController player_clone;
             if (PlayerPoolManager.i.playerPool.Count > 0) player_clone = PlayerPoolManager.i.DequeuePlayer();
-            else player_clone = Instantiate(player_original);
+            else player_clone = Instantiate(player_original[currentPlayerIndex]);
             player_clone.Initialize(transform, PlayerCenterPos());
             players.Add(player_clone);
         }

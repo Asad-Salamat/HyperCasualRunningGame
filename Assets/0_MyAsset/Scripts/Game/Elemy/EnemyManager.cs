@@ -55,6 +55,7 @@ public class EnemyManager : MonoBehaviour
         {
             EnemyController enemy_clone;
             enemy_clone = Instantiate(enemy_original);
+            enemy_clone.transform.rotation = Quaternion.Euler(0, 180, 0);
             enemy_clone.Initialize(transform, transform.position, this);
             enemies.Add(enemy_clone);
         }

@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5133132943035439957}
   m_Father: {fileID: 2015981502955065089}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158881787760711061}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -164,3 +165,86 @@ MonoBehaviour:
   renderers:
   - {fileID: 8510585933048325122}
   enemyState: 0
+  couple_player: {fileID: 0}
+--- !u!1001 &9187331011410406180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6431237979595270401}
+    m_Modifications:
+    - target: {fileID: 3677375442933246667, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_Name
+      value: Chibi Demon URP Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7857144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.099999905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972309237991369227, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8f767dd4f9b77540b4ce368266c86a6, type: 2}
+    - target: {fileID: 7972309237991369227, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+--- !u!4 &5133132943035439957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4054218057369235569, guid: a8862fe28f89f2e48b4d8c09d821a2e1, type: 3}
+  m_PrefabInstance: {fileID: 9187331011410406180}
+  m_PrefabAsset: {fileID: 0}
